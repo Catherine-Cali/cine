@@ -1,7 +1,5 @@
 import { useState } from "react";
 import RootLayout from "./layout";
-import {user} from "@/repository/user";
-import bcrypt from 'bcrypt';
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -14,6 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
+
 //acceder à un élément de user.ts : user.username
 
 export default function Connexion() {
@@ -22,10 +21,24 @@ export default function Connexion() {
   const [password, setPassword] = useState(''); 
 
   //empecher la page de se recharger
-  const handleSubmit = (event : any) => {
+  const handleSubmit = async (event : any) => {
     event.preventDefault(); // Empêche la page de se recharger
     console.log('Username:', username); // Affiche la valeur de `username`
     console.log('Password:', password); // Affiche la valeur de `password`
+    const requete = await fetch("./api/authentification", {
+      method : "POST",
+      headers : {
+        'Content-Type': 'application/json'
+      },
+      body : JSON.stringify({username,password})
+    })
+    if(requete.status == 200){
+      console.log("authentification réussie");
+    }
+    else{
+      // mettre un message d'erreur
+      console.log("authentificaion failed")
+    }
   };
 
   // mettre à jour le mdp
@@ -37,12 +50,9 @@ export default function Connexion() {
   function handleChangeU(e : any) {
     setUsername(e.target.value);
   }
+
   
 
-  // génère un salt unique pour sécuriser les mots de passe en les rendant plus résistants aux attaques. 
-  //Le paramètre 10 indique le niveau de complexité du salt.
-  const salt = bcrypt.genSaltSync(10);
-  const hashedPassword = bcrypt.hashSync(password, salt);
 
   return (<RootLayout>
     <div>
