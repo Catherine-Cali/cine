@@ -21,7 +21,7 @@ export default function Connexion() {
           </div>
           <div className="border-l border-gray-300"></div>
           <div className="flex-1 p-4"> {/* Deuxième colonne */}
-            <p>Coding in progress</p>
+            <p>Coding in progress essai</p>
           </div>
         </div>
       </div>
@@ -29,4 +29,5 @@ export default function Connexion() {
     );
   }
 
+  // essai ?????????????
  
