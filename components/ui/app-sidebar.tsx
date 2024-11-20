@@ -41,23 +41,23 @@ const items = [
   
   export function AppSidebar() {
     return (
-      <div className="w-full h-full p-4">
+      <div className="w-full h-full p-4 ">
         <nav>
-          {/* Section "Discover" */}
+            {/* pour le discover */}
           <SidebarMenuItem>
             <SidebarMenuButton>
-              <div className="flex items-center">
-                <discoverItem.icon className="mr-2" />
+              <div className="flex items-center ">
+                <discoverItem.icon className="mr-2 " />
                 {discoverItem.title}
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>
   
-          {/* Autres menus : Movies et TV Shows */}
+          {/* pr film et serie */}
           {items.map((item, index) => (
             <SidebarMenuItem key={index}>
               <SidebarMenuButton>
-                <div className="flex items-center">
+                <div className="flex items-center text-gray-600 ">
                   {item.title}
                 </div>
               </SidebarMenuButton>

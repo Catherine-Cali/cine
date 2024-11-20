@@ -16,7 +16,7 @@ export default function Connexion() {
         
         {/* Section du bas divisée en deux colonnes */}
         <div className="bg-white flex-1 flex">
-          <div className="flex-[0.20] p-4"> {/* Première colonne */}
+          <div className="flex-[0.20] p-1"> {/* Première colonne */}
               <AppSidebar />
           </div>
           <div className="border-l border-gray-300"></div>

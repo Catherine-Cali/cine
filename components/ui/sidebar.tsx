@@ -506,7 +506,7 @@ const SidebarMenuItem = React.forwardRef<
     ref={ref}
     data-sidebar="menu-item"
     style={{ listStyle: "none", paddingLeft: 0, marginLeft: 0 }}
-    className={cn("group/menu-item relative", "list-none", className)}
+    className={cn("group/menu-item relative", "list-none", className)} //  de supprimer les puces
     {...props}
   />
 ))
@@ -691,7 +691,7 @@ const SidebarMenuSub = React.forwardRef<
     ref={ref}
     data-sidebar="menu-sub"  
     className={cn(
-      "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-sidebar-border px-2.5 py-0.5",
+      "mx-2.5 flex min-w-0 translate-x-px flex-col gap-1  py-0.5",
       "group-data-[collapsible=icon]:hidden", "list-none",
       className
     )}
