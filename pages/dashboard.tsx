@@ -1,7 +1,5 @@
-import RootLayout from "./layout";
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"     
+ {/* ,SidebarTrigger */} 
 import { AppSidebar } from "@/components/ui/app-sidebar"
 
 export default function Connexion() {

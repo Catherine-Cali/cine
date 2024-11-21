@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -26,7 +25,7 @@ export default function Connexion() {
 
 
   //empecher la page de se recharger
-  const handleSubmit = async (event : any) => {
+  const handleSubmit = async (event : React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Empêche la page de se recharger
     //console.log('Username:', username); // Affiche la valeur de `username`
     //console.log('Password:', password); // Affiche la valeur de `password`
@@ -40,7 +39,7 @@ export default function Connexion() {
       })
       if(requete.status == 200){
         console.log("authentification réussie");
-        setIsLogged(true);
+        setIsLogged(isLogged);
         router.push('/dashboard');
   
       }
@@ -50,20 +49,20 @@ export default function Connexion() {
         router.push('/error');
       }
     }
-    catch(e){
-      setHasError(true);
+    catch{
+      setHasError(hasError);
       router.push('/error'); 
     }
 
   };
 
   // mettre à jour le mdp
-  function handleChangeP(e : any) {
+  function handleChangeP(e : React.ChangeEvent<HTMLInputElement>) {
     setPassword(e.target.value);
   }
 
   //mettre à jour le username
-  function handleChangeU(e : any) {
+  function handleChangeU(e : React.ChangeEvent<HTMLInputElement>) {
     setUsername(e.target.value);
   }
 
@@ -73,7 +72,7 @@ export default function Connexion() {
       setIsDarkMode(darkModeMediaQuery.matches); // pr definir le mode selon les prefs sys
   
       //pr detecter les changements en temps reel ( detecte changement pref sys)
-      const handleChange = (e:any) => setIsDarkMode(e.matches);
+      const handleChange = (e:MediaQueryListEvent) => setIsDarkMode(e.matches);
       darkModeMediaQuery.addEventListener('change', handleChange);
   
       //pr supp ecouteur d'evnmt ( permet eviter fuite de memoire)

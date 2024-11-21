@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import {user} from "@/repository/user";
-const bcrypt = require('bcryptjs');
+import * as bcrypt from 'bcryptjs'
 
 
 
